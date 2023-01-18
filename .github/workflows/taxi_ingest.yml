@@ -37,5 +37,5 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-          repository: anku22/taxi_ingest
+          repository: taxi_ingest
           readme-filepath: ./1_intro/README.md
