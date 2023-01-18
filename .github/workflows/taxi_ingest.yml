@@ -36,6 +36,6 @@ jobs:
         uses: peter-evans/dockerhub-description@v3
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
-          repository: taxi_ingest
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+          repository: anku22/taxi_ingest
           readme-filepath: ./1_intro/README.md
