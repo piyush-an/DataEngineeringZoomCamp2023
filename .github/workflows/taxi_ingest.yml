@@ -31,4 +31,4 @@ jobs:
           context: ./1_intro
           # file: ./1_intro/Dockerfile
           push: true
-          tags: dezc/taxi_ingest:v01
+          tags: anku22/taxi_ingest:v01
