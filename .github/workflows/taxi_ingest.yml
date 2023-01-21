@@ -30,7 +30,7 @@ jobs:
         with:
           context: ./1_intro
           push: true
-          tags: anku22/taxi_ingest:v01
+          tags: anku22/taxi_ingest:v03
       - 
         name: Docker Hub Description
         uses: peter-evans/dockerhub-description@v3
