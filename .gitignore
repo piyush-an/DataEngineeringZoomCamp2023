@@ -132,6 +132,7 @@ dmypy.json
 1_intro/run.yml
 1_intro/ny_taxi_postgres_data
 key
+data
 
 # Local .terraform directories
 **/.terraform/*
