@@ -29,7 +29,7 @@ Using the flow in `etl_web_to_gcs.py`, create a deployment to run on the first o
 - `5 * 1 0 *`
 - `* * 5 1 0`
 
-![Q2](../img/02-hw-q2.PNG)
+![Q2](../img/02-hw-q2.png)
 
 ## Question 3. Loading data to BigQuery 
 
@@ -55,7 +55,7 @@ Make sure you have the parquet data files for Yellow taxi data for Feb. 2019 and
 04:36:18.788 | INFO    | Flow run 'fast-grouse' - Total number of rows processed for yellow-03-2019 data: 7832545
 ---
 
-![Q3](../img/02-hw-q3.PNG)
+![Q3](../img/02-hw-q3.png)
 
 ## Question 4. Github Storage Block
 
@@ -130,7 +130,7 @@ Prefect Secret blocks provide secure, encrypted storage in the database and obfu
 - 8 - __Answer__
 - 10
 
-![Q6](../img/02-hw-q6.PNG)
+![Q6](../img/02-hw-q6.png)
 
 ## Submitting the solutions
 
