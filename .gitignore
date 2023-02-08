@@ -133,7 +133,7 @@ dmypy.json
 1_intro/ny_taxi_postgres_data
 key
 data
-
+.env_wf
 # Local .terraform directories
 **/.terraform/*
 

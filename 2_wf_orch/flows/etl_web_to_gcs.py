@@ -7,10 +7,12 @@ import os
 from prefect.tasks import task_input_hash
 from datetime import timedelta
 
+
 @task(retries=3, cache_key_fn=task_input_hash, cache_expiration=timedelta(days=1))
 def fetch(dataset_url: str) -> pd.DataFrame:
     """Read taxi data from web into pandas DataFrame"""
-    df = pd.read_csv(dataset_url)
+    print(f"dataset_url : {dataset_url}")
+    df = pd.read_csv(dataset_url, engine='pyarrow')
     return df
 
 
@@ -33,8 +35,8 @@ def clean(df: pd.DataFrame, color: str) -> pd.DataFrame:
 def write_local(df: pd.DataFrame, color: str, dataset_file: str) -> Path:
     """Write DataFrame out locally as parquet file"""
     # path = os.path.join(os.path.realpath(__file__),f"data\{color}\{dataset_file}.parquet")
-    path = Path(f"flows/data/{color}/{dataset_file}.parquet")
-    print(f"Path is : ${path}")
+    path = Path(f"data/{color}/{dataset_file}.parquet")
+    print(f"Path is : {path}")
     df.to_parquet(path, compression="gzip")
     return path
 
@@ -43,7 +45,7 @@ def write_local(df: pd.DataFrame, color: str, dataset_file: str) -> Path:
 def write_gcs(path: Path) -> None:
     """Upload local parquet file to GCS"""
     gcs_block = GcsBucket.load("zoom-gcs")
-    gcs_block.upload_from_path(from_path=path, to_path=path)
+    gcs_block.upload_from_path(from_path=path, to_path=path) # '/'.join(path.split('/')[1:])
     return
 
 
@@ -59,12 +61,12 @@ def etl_web_to_gcs(color:str, month:int, year: int) -> None:
     write_gcs(path)
 
 @flow()
-def etl_web_to_gcs_parent(color:str = "yellow", months: list[int] = [1,2], year: int = 2021):
+def etl_web_to_gcs_parent(color:str = "yellow", months: list = [1,2], year: int = 2021):
     for month in months:
         etl_web_to_gcs(color, month, year)
 
 if __name__ == "__main__":
-    color = "yellow"
-    months = [1,2,3]
-    year = 2021
+    color = "green"
+    months = [11]
+    year = 2020
     etl_web_to_gcs_parent(color, months, year)

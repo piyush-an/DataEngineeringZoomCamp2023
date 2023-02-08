@@ -1,3 +1,3 @@
 create-dirs:
-	mkdir -p flows/data/yellow
-	mkdir -p flows/data/green
+	mkdir -p data/yellow
+	mkdir -p data/green

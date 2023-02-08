@@ -1,14 +1,16 @@
 ###
 ### A complete description of a Prefect Deployment for flow 'etl-gcs-to-bq-parent'
 ###
-name: etl_gcs_to_bq
+name: etl_gcs_to_bq_deploy
 description: null
-version: 6b9a8150ff12e000348471470e6d9b72
+version: 6beb588ee73611ce178c6c813ca72cf0
 # The work queue that will handle this deployment's runs
 work_queue_name: default
+work_pool_name: null
 tags: []
 parameters: {"color" : "yellow", "months" : [2,3], "year" : 2019}
 schedule: null
+is_schedule_active: null
 infra_overrides: {}
 infrastructure:
   type: process
@@ -27,8 +29,8 @@ infrastructure:
 flow_name: etl-gcs-to-bq-parent
 manifest_path: null
 storage: null
-path: C:\Users\ankur\Sandbox\DataEngineeringZoomCamp2023\2_wf_orch
-entrypoint: flows\etl_gcs_to_bq.py:etl_gcs_to_bq_parent
+path: /home/piyush/sandbox/DataEngineeringZoomCamp2023/2_wf_orch
+entrypoint: flows/etl_gcs_to_bq.py:etl_gcs_to_bq_parent
 parameter_openapi_schema:
   title: Parameters
   type: object
@@ -45,8 +47,7 @@ parameter_openapi_schema:
       - 2
       position: 1
       type: array
-      items:
-        type: integer
+      items: {}
     year:
       title: year
       default: 2021
@@ -54,3 +55,4 @@ parameter_openapi_schema:
       type: integer
   required: null
   definitions: null
+timestamp: '2023-02-08T07:50:59.683520+00:00'
