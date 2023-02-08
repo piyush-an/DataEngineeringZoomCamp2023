@@ -59,6 +59,7 @@ def etl_web_to_gcs(color:str, month:int, year: int) -> None:
     df_clean = clean(df, color)
     path = write_local(df_clean, color, dataset_file)
     write_gcs(path)
+    print(f"Number of row processed : {len(df_clean)}")
 
 @flow()
 def etl_web_to_gcs_parent(color:str = "yellow", months: list = [1,2], year: int = 2021):
