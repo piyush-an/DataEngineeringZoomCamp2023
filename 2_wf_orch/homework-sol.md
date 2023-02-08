@@ -53,7 +53,7 @@ Make sure you have the parquet data files for Yellow taxi data for Feb. 2019 and
 ```text
 04:34:57.689 | INFO    | Flow run 'sassy-dove' - Total number of rows processed for yellow-02-2019 data: 7019375
 04:36:18.788 | INFO    | Flow run 'fast-grouse' - Total number of rows processed for yellow-03-2019 data: 7832545
----
+```
 
 ![Q3](../img/02-hw-q3.png)
 
