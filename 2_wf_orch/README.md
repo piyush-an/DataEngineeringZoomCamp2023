@@ -14,13 +14,15 @@ pip install prefect==2.7.7
 prefect orion start
 
 # Create a deployment 
-prefect deployment build .\flows\file_name.py:flow_name -n "deployment-name"
+prefect deployment build flows/file_name.py:flow_name -n "deployment-name"
 
 # Apply the deployment
-prefect deployment apply .\deployment-name-deployment.yaml
+prefect deployment apply deployment-name-deployment.yaml
 
 # Create Work Queues
 prefect agent start  --work-queue "default"
 ```
 
+# prefect blocks
 
+![prefect-blocks](../img/02-hw-bloxks.png)

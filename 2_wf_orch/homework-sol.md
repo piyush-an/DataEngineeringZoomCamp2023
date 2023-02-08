@@ -69,10 +69,20 @@ How many rows were processed by the script?
 
 - 88,019
 - 192,297
-- 88,605
+- 88,605 - __Answer__
 - 190,225
 
+Created a deployemnt using
+* [deployment_src_git.py](flows/deployment_src_git.py)
+* Github Block in prefect with name `github-de-02wf`
 
+```test
+04:22:38.342 | INFO    | Flow run 'gamma4-organia' - Finished in state Completed('All states completed.')
+Working Dir : /tmp/tmpp5emojpoprefect
+Path is : data/green/green_tripdata_2020-11.parquet
+Number of row processed : 88605
+04:22:39.062 | INFO    | prefect.infrastructure.process - Process 'gamma4-organia' exited cleanly.
+```
 
 ## Question 5. Email or Slack notifications
 
@@ -100,8 +110,16 @@ How many rows were processed by the script?
 - `125,268`
 - `377,922`
 - `728,390`
-- `514,392`
+- `514,392` - __Answer__
 
+Using Orion Created a Notification using the slack webhook above for "Completed" status notifications only.
+
+```text
+dataset_url : https://github.com/DataTalksClub/nyc-tlc-data/releases/download/green/green_tripdata_2019-04.csv.gz
+Path is : data/green/green_tripdata_2019-04.parquet
+Number of row processed : 514392
+04:30:21.618 | INFO    | prefect.infrastructure.process - Process 'sigma-hojo-mass' exited cleanly.
+```
 
 ## Question 6. Secrets
 
