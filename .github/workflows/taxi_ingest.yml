@@ -12,6 +12,9 @@ jobs:
       -
         name: Checkout
         uses: actions/checkout@v3
+      - 
+        id: commit
+        uses: pr-mpt/actions-commit-hash@v2
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v2
@@ -30,7 +33,10 @@ jobs:
         with:
           context: ./1_intro
           push: true
-          tags: anku22/taxi_ingest:v03
+          tags: |
+            ${{ secrets.DOCKERHUB_USERNAME }}/taxi_ingest:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/taxi_ingest:${{ steps.commit.outputs.short }}
+          # tags: anku22/taxi_ingest:v03
       - 
         name: Docker Hub Description
         uses: peter-evans/dockerhub-description@v3
